@@ -11,16 +11,16 @@
 
     <ul class="d-flex">
       <li class="nav-item mr-7">
-        <router-link to="/news">最新消息</router-link>
+        <router-link to="/news" class="text-dark font-weight-3">最新消息</router-link>
       </li>
       <li class="nav-item mr-7">
-        <router-link to="/route">自行車路線</router-link>
+        <router-link to="/route" class="text-dark font-weight-3">自行車路線</router-link>
       </li>
       <li class="nav-item mr-7">
-        <router-link to="/rent">單車租借</router-link>
+        <router-link to="/rent" class="text-dark font-weight-3">單車租借</router-link>
       </li>
       <li class="nav-item">
-        <router-link to="/tip">騎乘小叮嚀</router-link>
+        <router-link to="/tip" class="text-dark font-weight-3">騎乘小叮嚀</router-link>
       </li>
     </ul>
   </b-nav>
@@ -42,7 +42,7 @@
 
 <style scoped>
   .nav{
-    padding: 16px 40px;
+    padding: 16px 40px !important;
   }
 
   .nav, .nav-item{

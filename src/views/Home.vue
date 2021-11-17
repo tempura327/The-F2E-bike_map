@@ -34,7 +34,8 @@
           <ul class="mb-12">
             <li v-for="(item, index) in news" :key="index" class="news-item">
               <h6 class="h6 text-light">{{item.date}}</h6>
-              <router-link to="/" class="a">{{item.title}}</router-link>
+              <!-- <router-link to="/" class="a">{{item.title}}</router-link> -->
+              <p @click="goToNews(item)" class="a">{{item.title}}</p>
               <h6 class="h6 text-light"><font-awesome-icon icon="angle-right"></font-awesome-icon></h6>
             </li>
           </ul>
@@ -62,7 +63,21 @@
       }
     },
     methods:{
-      
+      goToNews(data){
+        console.log(data);
+        this.$router.push({
+          name:'News',
+          query:{
+            newsId:data.id
+          },
+          params:{
+            content:data.content,
+            date: data.date,
+            type: data.type,
+            title: data.title,
+          }
+        })
+      }
     }
   }
 </script>

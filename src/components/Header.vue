@@ -14,7 +14,7 @@
         <router-link to="/news" class="text-dark font-weight-3">最新消息</router-link>
       </li>
       <li class="nav-item mr-7">
-        <router-link to="/route" class="text-dark font-weight-3">自行車路線</router-link>
+        <router-link to="/map" class="text-dark font-weight-3">自行車路線</router-link>
       </li>
       <li class="nav-item mr-7">
         <router-link to="/rent" class="text-dark font-weight-3">單車租借</router-link>

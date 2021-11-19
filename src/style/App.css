@@ -1441,4 +1441,8 @@ body {
   height: 320px;
   overflow: hidden;
 }
+
+.cursor-pointer {
+  cursor: pointer;
+}
 /*# sourceMappingURL=App.css.map */

@@ -13,7 +13,7 @@ git init
 git add -A
 git commit -m "deploy (commit: $COMMIT)"
 
-git push -f git@github.com:tempura327/The-F2E-bus_map.git master:gh-pages
+git push -f git@github.com:tempura327/The-F2E-bike_map.git master:gh-pages
 
 cd ..
 

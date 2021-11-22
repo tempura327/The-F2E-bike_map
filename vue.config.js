@@ -1,4 +1,4 @@
 module.exports = {
-    publicPath: "/The-F2E-tourism/"
+    publicPath: "/The-F2E-bus_map/"
 
   }

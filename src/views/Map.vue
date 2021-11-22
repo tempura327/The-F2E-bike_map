@@ -29,6 +29,7 @@
 
 <script>
     import mapboxgl from 'mapbox-gl';
+    import jsSHA from "jssha";
 
     export default {
         name:'Map',
@@ -77,12 +78,20 @@
         },
         methods:{
             async queryRoute(){
+            let GMTString = new Date().toGMTString();
+            const ShaObj = new jsSHA('SHA-1', 'TEXT');
+            ShaObj.setHMACKey('OPt8cbnBt_P461mggB8qbzrZiDc', 'TEXT');
+            ShaObj.update('x-date: ' + GMTString);
+            const HMAC = ShaObj.getHMAC('B64');
+            let Authorization = `hmac username="83592d8c997f4933ae965e60e5995a2d", algorithm="hmac-sha1", headers="x-date", signature="${HMAC}"`;
+
                 try{
                     const res = await fetch(`https://ptx.transportdata.tw/MOTC/v2/Cycling/Shape/${this.selectedCity}?$top=30&$format=JSON`, {
                         method:'GET',
                         header:{
-                          Authorization:'hmac username=83592d8c997f4933ae965e60e5995a2d',
-                          'X-Date':new Date().toGMTString(),
+                            Authorization: Authorization,
+                            "X-Date": GMTString,
+                            "Content-Type": "application/x-www-form-urlencoded"
                         },
                         'Accept-Encoding': 'gzip'                         
                     })
@@ -93,7 +102,6 @@
                     console.log('fail route');
                 }finally{
                     this.isSearched = true;
-                    console.log(this.routeData)
                 }
             },
             showRoute(data){
@@ -110,7 +118,7 @@
                 this.isRouteSelected = true;
                 this.drawRoute();
             },
-            async drawRoute(){
+            drawRoute(){
                 this.map.addLayer({
                   id: "route",
                   type: "line",

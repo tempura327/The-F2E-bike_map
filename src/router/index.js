@@ -4,12 +4,13 @@ import VueRouter from 'vue-router';
 const Home = () => import('../views/Home.vue');
 const News = () => import('../views/News.vue');
 const Map = () => import('../views/Map.vue');
+const RentBike = () => import('../views/RentBike.vue');
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/home',
+    path: '/The-F2E-bike_map',
     name: 'Home',
     component: Home,
   },
@@ -22,6 +23,11 @@ const routes = [
     path:'/map',
     name:'Map',
     component:Map
+  },
+  {
+    path:'/rent_bike',
+    name:'RentBike',
+    component:RentBike
   }
 ];
 
